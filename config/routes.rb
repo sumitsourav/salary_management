@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  namespace :api do
+    namespace :v1 do
+      resources :employees
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+      namespace :insights do
+        get :salary_by_country
+        get :salary_by_job_title
+        get :top_earners
+      end
+    end
+  end
 end
